@@ -1,0 +1,111 @@
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" name="nom" placeholder="Nom" [(ngModel)]="nom" (change)="calculTheme()">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" name="prenom" placeholder="Prenom" [(ngModel)]="prenom" (change)="calculTheme()">
+    </div>
+    <div class="col">
+      <input type="date" class="form-control" name="dateNaissance" placeholder="Date Naissance" [(ngModel)]="dateNaissance" (change)="calculTheme()">
+    </div>
+  </div>
+</form>
+<div class="row">
+  <div class="col-4">
+    <br>
+      Matrice des nombres
+      <table class="table">
+          <tr>
+            <td>{{matrice[0][0]}}</td><td>{{matrice[0][1]}}</td><td>{{matrice[0][2]}}</td>
+          </tr>
+        <tr>
+          <td>{{matrice[1][0]}}</td><td>{{matrice[1][1]}}</td><td>{{matrice[1][2]}}</td>
+        </tr>
+        <tr>
+          <td>{{matrice[2][0]}}</td><td>{{matrice[2][1]}}</td><td>{{matrice[2][2]}}</td>
+        </tr>
+      </table>
+  </div>
+  <div class="col-8">
+      <br>
+      <b>Interpretation des nombres dominants</b><br>
+      <ul>
+        <li *ngFor="let nbre of nbresDominants"><b>{{nbre}}</b> : {{dicoNbresDominants.get(nbre)}} </li>
+      </ul>
+      <b>Interpretation des nombres manquants</b>
+      <ul>
+        <li *ngFor="let nbre of nbresManquants"><b>{{nbre}}</b> : {{dicoNbresManquants.get(nbre)}}</li>
+      </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header">Nombre Héréditaire</h5>
+      <div class="card-body">
+          <h5 class="card-title">{{nbreHereditaire}}</h5>
+          <p class="card-text">
+            {{interNbreHereditaire}}
+          </p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header">Nombre Actif</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{nbreActif}}</h5>
+        <p class="card-text">
+          {{interNbreActif}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header">Nombre Intime</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{nbreIntime}}</h5>
+        <p class="card-text">
+          {{interNbreIntime}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header">Nombre Réalisation</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{nbreRealisation}}</h5>
+        <p class="card-text">
+          {{interNbreRealisation}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header">Nombre Expression</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{nbreExpression}}</h5>
+        <p class="card-text">
+          {{interNbreExpression}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header">Chemin de vie</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{cheminVie}}</h5>
+        <p class="card-text">
+          {{interCheminVie}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
