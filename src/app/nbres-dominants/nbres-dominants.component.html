@@ -1,0 +1,5 @@
+<b>Nombres dominants</b> : {{nbresDominants}}<br>
+<b>Interpretation des nombres dominants</b><br>
+<ul>
+  <li *ngFor="let nbre of nbresDominants"><b>{{nbre}}</b> : {{dicoNbresDominants.get(nbre)}} </li>
+</ul>

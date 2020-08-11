@@ -1,111 +1,48 @@
 <form>
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" name="nom" placeholder="Nom" [(ngModel)]="nom" (change)="calculTheme()">
+      <input type="text" class="form-control" name="nom" placeholder="Nom" [(ngModel)]="nom">
     </div>
     <div class="col">
-      <input type="text" class="form-control" name="prenom" placeholder="Prenom" [(ngModel)]="prenom" (change)="calculTheme()">
+      <input type="text" class="form-control" name="prenom" placeholder="Prenom" [(ngModel)]="prenom">
     </div>
     <div class="col">
-      <input type="date" class="form-control" name="dateNaissance" placeholder="Date Naissance" [(ngModel)]="dateNaissance" (change)="calculTheme()">
+      <input type="date" class="form-control" name="dateNaissance" placeholder="Date Naissance" [(ngModel)]="dateNaissance">
     </div>
   </div>
 </form>
 <div class="row">
   <div class="col-4">
-    <br>
-      Matrice des nombres
-      <table class="table">
-          <tr>
-            <td>{{matrice[0][0]}}</td><td>{{matrice[0][1]}}</td><td>{{matrice[0][2]}}</td>
-          </tr>
-        <tr>
-          <td>{{matrice[1][0]}}</td><td>{{matrice[1][1]}}</td><td>{{matrice[1][2]}}</td>
-        </tr>
-        <tr>
-          <td>{{matrice[2][0]}}</td><td>{{matrice[2][1]}}</td><td>{{matrice[2][2]}}</td>
-        </tr>
-      </table>
+    <app-matrice-nbre [nom]="nom" [prenom]="prenom"></app-matrice-nbre>
   </div>
   <div class="col-8">
       <br>
-      <b>Interpretation des nombres dominants</b><br>
-      <ul>
-        <li *ngFor="let nbre of nbresDominants"><b>{{nbre}}</b> : {{dicoNbresDominants.get(nbre)}} </li>
-      </ul>
-      <b>Interpretation des nombres manquants</b>
-      <ul>
-        <li *ngFor="let nbre of nbresManquants"><b>{{nbre}}</b> : {{dicoNbresManquants.get(nbre)}}</li>
-      </ul>
+      <app-nbres-dominants [nom]="nom" [prenom]="prenom"></app-nbres-dominants>
+      <app-nbres-manquants [nom]="nom" [prenom]="prenom"></app-nbres-manquants>
   </div>
 </div>
+<br>
 <div class="row">
   <div class="col">
-    <div class="card">
-      <h5 class="card-header">Nombre Héréditaire</h5>
-      <div class="card-body">
-          <h5 class="card-title">{{nbreHereditaire}}</h5>
-          <p class="card-text">
-            {{interNbreHereditaire}}
-          </p>
-      </div>
-    </div>
+    <app-nbre-hereditaire [nom]="nom"></app-nbre-hereditaire>
   </div>
   <div class="col">
-    <div class="card">
-      <h5 class="card-header">Nombre Actif</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{nbreActif}}</h5>
-        <p class="card-text">
-          {{interNbreActif}}
-        </p>
-      </div>
-    </div>
+    <app-nbre-actif [prenom]="prenom"></app-nbre-actif>
   </div>
   <div class="col">
-    <div class="card">
-      <h5 class="card-header">Nombre Intime</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{nbreIntime}}</h5>
-        <p class="card-text">
-          {{interNbreIntime}}
-        </p>
-      </div>
-    </div>
+    <app-nbre-intime [nom]="nom" [prenom]="prenom"></app-nbre-intime>
   </div>
 </div>
+<br>
 <div class="row">
   <div class="col">
-    <div class="card">
-      <h5 class="card-header">Nombre Réalisation</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{nbreRealisation}}</h5>
-        <p class="card-text">
-          {{interNbreRealisation}}
-        </p>
-      </div>
-    </div>
+    <app-nbre-realisation [nom]="nom" [prenom]="prenom"></app-nbre-realisation>
   </div>
   <div class="col">
-    <div class="card">
-      <h5 class="card-header">Nombre Expression</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{nbreExpression}}</h5>
-        <p class="card-text">
-          {{interNbreExpression}}
-        </p>
-      </div>
-    </div>
+    <app-nbre-expression [nom]="nom" [prenom]="prenom"></app-nbre-expression>
   </div>
   <div class="col">
-    <div class="card">
-      <h5 class="card-header">Chemin de vie</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{cheminVie}}</h5>
-        <p class="card-text">
-          {{interCheminVie}}
-        </p>
-      </div>
-    </div>
+    <app-chemin-vie [dateNaissance]="dateNaissance"></app-chemin-vie>
   </div>
 </div>
+<br>

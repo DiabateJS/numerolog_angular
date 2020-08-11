@@ -1,0 +1,5 @@
+<b>Nombres manquants </b> : {{nbresManquants}}<br>
+<b>Interpretation des nombres manquants</b>
+<ul>
+  <li *ngFor="let nbre of nbresManquants"><b>{{nbre}}</b> : {{dicoNbresManquants.get(nbre)}}</li>
+</ul>
