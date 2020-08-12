@@ -15,6 +15,7 @@ import { NbreIntimeComponent } from './nbre-intime/nbre-intime.component';
 import { NbreRealisationComponent } from './nbre-realisation/nbre-realisation.component';
 import { NbreExpressionComponent } from './nbre-expression/nbre-expression.component';
 import { CheminVieComponent } from './chemin-vie/chemin-vie.component';
+import {NumerologService} from './numerolog.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { CheminVieComponent } from './chemin-vie/chemin-vie.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [NumerologService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
