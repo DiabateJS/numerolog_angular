@@ -16,6 +16,13 @@ import { NbreRealisationComponent } from './nbre-realisation/nbre-realisation.co
 import { NbreExpressionComponent } from './nbre-expression/nbre-expression.component';
 import { CheminVieComponent } from './chemin-vie/chemin-vie.component';
 import {NumerologService} from './numerolog.service';
+import {InterNbreManquantService} from './inter-nbre-manquant.service';
+import {InterNbreDominantService} from './inter-nbre-dominant.service';
+import {InterNbreActifService} from './inter-nbre-actif.service';
+import {InterNbreExpressionService} from './inter-nbre-expression.service';
+import {InterNbreHereditaireService} from './inter-nbre-hereditaire.service';
+import {InterNbreIntimeService} from './inter-nbre-intime.service';
+import {InterNbreRealisationService} from './inter-nbre-realisation.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,16 @@ import {NumerologService} from './numerolog.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [NumerologService],
+  providers: [
+    NumerologService,
+    InterNbreManquantService,
+    InterNbreDominantService,
+    InterNbreActifService,
+    InterNbreExpressionService,
+    InterNbreHereditaireService,
+    InterNbreIntimeService,
+    InterNbreRealisationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

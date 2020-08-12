@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NumerologService} from '../numerolog.service';
 
 @Component({
   selector: 'app-chemin-vie',
@@ -11,7 +12,7 @@ export class CheminVieComponent implements OnInit {
   interCheminVie:string;
   tabInterCheminVie:string[];
 
-  constructor() {
+  constructor(private numerologService: NumerologService) {
     this._dateNaissance = '';
     this.cheminVie = 0;
     this.interCheminVie = '';
@@ -32,21 +33,9 @@ export class CheminVieComponent implements OnInit {
       ];
   }
 
-  private reductionNum(nbre:number):number{
-    let res:number = 0;
-    if (nbre != 0)
-      res = nbre % 9 == 0 ? 9 : nbre % 9;
-    return res;
-  }
-
   private getCheminVie(){
     //Calcul chemin de vie
-    this.cheminVie = 0;
-    let tabDateNais:string[] = this._dateNaissance ? this._dateNaissance.split("-") : [];
-    if (tabDateNais.length == 3){
-      this.cheminVie += parseInt(tabDateNais[0]) + parseInt(tabDateNais[1]) + parseInt(tabDateNais[2]);
-      this.cheminVie = this.reductionNum(this.cheminVie);
-    }
+    this.cheminVie = this.numerologService.getCheminVie(this._dateNaissance);
     this.interCheminVie = this.tabInterCheminVie[this.cheminVie-1];
   }
 

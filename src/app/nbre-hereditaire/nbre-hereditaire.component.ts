@@ -1,37 +1,25 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
+import {InterNbreHereditaireService} from '../inter-nbre-hereditaire.service';
 
 @Component({
   selector: 'app-nbre-hereditaire',
   templateUrl: './nbre-hereditaire.component.html',
-  styleUrls: ['./nbre-hereditaire.component.css'],
-  providers: [NumerologService]
+  styleUrls: ['./nbre-hereditaire.component.css']
 })
 export class NbreHereditaireComponent implements OnInit {
   private _nom:string;
   nbreHereditaire:number;
   interNbreHereditaire:string;
-  tabInterNbreHereditaire:string[];
 
-  constructor(private numerologService: NumerologService) {
+  constructor(private numerologService: NumerologService,
+              private interNbreHereditaireService: InterNbreHereditaireService) {
     this._nom = '';
     this.nbreHereditaire = 0;
-    this.tabInterNbreHereditaire = [];
     this.interNbreHereditaire = '';
   }
 
   ngOnInit(): void {
-      this.tabInterNbreHereditaire = [
-        "Courage, assurance, audace, aplomb.",
-        "Équilibre, Sociabilité, Bon sens, Amabilité.",
-        "Créativité, Adaptabilité, Inventivité, Expression.",
-        "Méthode, Ordre, Minutie, Rigueur et Ténacité.",
-        "Combativité, Ardeur, Résistance.",
-        "Justice, Générosité, Honnêteté.",
-        "Raison, Sagesse, Bon sens, Modération.",
-        "Autorité, Détermination, Influence.",
-        "Dignité, Fierté, Amour-propre."
-      ];
   }
 
   get nom():string{
@@ -48,12 +36,8 @@ export class NbreHereditaireComponent implements OnInit {
       let fullName = `${this._nom}`;
       if (fullName !== ''){
         //Calcul nombre héréditaire
-        this.nbreHereditaire = 0;
-        for (let i = 0 ; i < this._nom.length ; i++){
-          this.nbreHereditaire += this.numerologService.getCode(this._nom[i]);
-        }
-        this.nbreHereditaire = this.numerologService.reductionNum(this.nbreHereditaire);
-        this.interNbreHereditaire = this.tabInterNbreHereditaire[this.nbreHereditaire-1];
+        this.nbreHereditaire = this.numerologService.getNbreHereditaire(fullName);
+        this.interNbreHereditaire = this.interNbreHereditaireService.getInterNbre(this.nbreHereditaire);
       }
   }
 

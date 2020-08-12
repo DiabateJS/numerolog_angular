@@ -4,8 +4,7 @@ import {NumerologService} from '../numerolog.service';
 @Component({
   selector: 'app-matrice-nbre',
   templateUrl: './matrice-nbre.component.html',
-  styleUrls: ['./matrice-nbre.component.css'],
-  providers: [NumerologService]
+  styleUrls: ['./matrice-nbre.component.css']
 })
 export class MatriceNbreComponent implements OnInit {
 
