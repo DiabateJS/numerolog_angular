@@ -22,7 +22,7 @@ export class InterNbreExpressionService {
 
   getInterNbre(nbre:number):string {
     let interNbre:string = '';
-    if (nbre > 0 & nbre < 10){
+    if (nbre > 0 && nbre < 10){
         interNbre = this._tabInterNbreExpression[nbre-1];
     }
     return interNbre;
