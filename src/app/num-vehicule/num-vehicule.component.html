@@ -1,1 +1,25 @@
-<p>num-vehicule works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4>Numérologie automobile</h4>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">Plaque immatriculation</div>
+    <div class="col">
+      <input type="text" [(ngModel)]="immatriculation" (change)="doCalcul()">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h6>Résultat</h6><br><br>
+      Nombre immatriculation : <b>{{nbreImmatriculation}}</b><br>
+      <br>
+      <b>Interpretation</b><br>
+      {{interNbreImmatriculation}}<br>
+      <br>
+    </div>
+  </div>
+</div>
