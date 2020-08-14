@@ -1,1 +1,30 @@
-<p>num-entreprise works!</p>
+<div class="container">
+  <div class="row">
+    <h4>Numérologie d'entreprise</h4>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <input type="text" [(ngModel)]="nom" placeholder="Nom" (change)="doCalcul()">
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="numeroPorte" placeholder="Numero de porte ou bureau" (change)="doCalcul()">
+    </div>
+    <div class="col">
+      <input type="date" [(ngModel)]="dateLancement" (change)="doCalcul()">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <b>Entreprise</b><br>
+      Nom : <b>{{nom}}</b><br>
+      Numéro de porte ou bureau : <b>{{numeroPorte}}</b><br>
+      Date de lancement : <b>{{dateLancement}}</b><br>
+      <br>
+      <b>Interpretation</b><br>
+      {{chiffreResultat}} : {{interChiffre}}<br>
+      <br>
+    </div>
+  </div>
+</div>
