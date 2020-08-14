@@ -23,6 +23,12 @@ import {InterNbreExpressionService} from './inter-nbre-expression.service';
 import {InterNbreHereditaireService} from './inter-nbre-hereditaire.service';
 import {InterNbreIntimeService} from './inter-nbre-intime.service';
 import {InterNbreRealisationService} from './inter-nbre-realisation.service';
+import { AppRoutingModule } from './app-routing.module';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { NumCoupleComponent } from './num-couple/num-couple.component';
+import { NumEntrepriseComponent } from './num-entreprise/num-entreprise.component';
+import { NumHabitationComponent } from './num-habitation/num-habitation.component';
+import { NumVehiculeComponent } from './num-vehicule/num-vehicule.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +44,17 @@ import {InterNbreRealisationService} from './inter-nbre-realisation.service';
     NbreIntimeComponent,
     NbreRealisationComponent,
     NbreExpressionComponent,
-    CheminVieComponent
+    CheminVieComponent,
+    MenuBarComponent,
+    NumCoupleComponent,
+    NumEntrepriseComponent,
+    NumHabitationComponent,
+    NumVehiculeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
     NumerologService,

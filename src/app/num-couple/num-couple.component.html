@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <h4>Compatibilité de couple</h4>
+  </div>
+  <br>
+  <div class="row">
+    Information sur vous<br>
+  </div>
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="Votre nom" [(ngModel)]="nom1" (change)="calculateNumbers()">
+    </div>
+    <div class="col">
+      <input type="text" placeholder="Votre prenom" [(ngModel)]="prenom1" (change)="calculateNumbers()">
+    </div>
+    <div class="col">
+      <input type="date" [(ngModel)]="dateNaissance1" (change)="calculateNumbers()">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    Information sur votre compagne
+  </div>
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="Son nom" [(ngModel)]="nom2" (change)="calculateNumbers()">
+    </div>
+    <div class="col">
+      <input type="text" placeholder="Son prenom" [(ngModel)]="prenom2" (change)="calculateNumbers()">
+    </div>
+    <div class="col">
+      <input type="date" [(ngModel)]="dateNaissance2" (change)="calculateNumbers()">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <h5>Résultat de compatibilité</h5>
+  </div>
+  <div class="row">
+    <div class="col">
+        Vous : {{prenom1}} {{nom1}}<br>
+        Né le : {{dateNaissance1}}<br>
+        <br>
+        Nombre expression : {{nbreExpression1}}<br>
+        Nombre Intime : {{nbreIntime1}}<br>
+        Chemin de Vie : {{cheminVie1}}<br>
+    </div>
+    <div class="col">
+      Votre compagne : {{prenom2}} {{nom2}}<br>
+      Née le : {{dateNaissance2}}<br>
+      <br>
+      Nombre expression : {{nbreExpression2}}<br>
+      Nombre Intime : {{nbreIntime2}}<br>
+      Chemin de Vie : {{cheminVie2}}<br>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <b><u>Interpretations</u></b><br><br>
+      <b>Chemins de vies : </b> {{interCheminVie}}<br>
+      <br>
+      <b>Nombres expressions : </b> {{interNbresIntimes}}<br>
+      <br>
+      <b>Nombres intimes : </b> {{interNbresIntimes}}<br>
+      <br>
+    </div>
+  </div>
+</div>
