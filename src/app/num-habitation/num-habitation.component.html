@@ -1,1 +1,28 @@
-<p>num-habitation works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4>Numérologie habitation</h4>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      Adresse habitation :
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="adresse" (change)="doCalcul()">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h6>Résultat et interpretation</h6><br>
+      Adresse : <b>{{adresse}}</b><br>
+      Nombre habitation : <b>{{nbreHabitation}}</b><br>
+      <br>
+      <b>Interpretation</b><br>
+      {{interNbreHabitation}}<br>
+      <br>
+    </div>
+  </div>
+</div>

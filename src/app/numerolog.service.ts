@@ -42,6 +42,18 @@ export class NumerologService {
 
     this._dicoNbres.set('I',9);
     this._dicoNbres.set('R',9);
+
+    this._dicoNbres.set('1',1);
+    this._dicoNbres.set('2',2);
+    this._dicoNbres.set('3',3);
+
+    this._dicoNbres.set('4',4);
+    this._dicoNbres.set('5',5);
+    this._dicoNbres.set('6',6);
+
+    this._dicoNbres.set('7',7);
+    this._dicoNbres.set('8',8);
+    this._dicoNbres.set('9',9);
   }
 
   getCode(char:string):number{
