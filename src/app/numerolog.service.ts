@@ -103,6 +103,15 @@ export class NumerologService {
     return res;
   }
 
+  reductionChaine(chaine:string):number{
+    let somme:number = 0;
+    for (let i = 0 ; i < chaine.length ; i++){
+      somme += this.getCode(chaine[i]);
+    }
+    somme = this.reductionNum(somme);
+    return somme;
+  }
+
   isVoyelle(char:string):boolean {
     let voyelles:string[] = ['A','E','O','U','I','Y'];
     let res:boolean = false;

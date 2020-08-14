@@ -39,11 +39,7 @@ export class NumEntrepriseComponent implements OnInit {
 
   doCalcul(){
     let fullData = `${this.nom} ${this.numeroPorte} ${this.dateLancement}`;
-    let somme:number = 0;
-    for (let i = 0 ; i < fullData.length ; i++){
-      somme += this.numerologService.getCode(fullData[i]);
-    }
-    this.chiffreResultat = this.numerologService.reductionNum(somme);
+    this.chiffreResultat = this.numerologService.reductionChaine(fullData);
     if (this.chiffreResultat > 0 && this.chiffreResultat < 10){
       this.interChiffre = this.tabInterChiffre[this.chiffreResultat-1];
     }
