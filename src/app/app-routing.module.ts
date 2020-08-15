@@ -5,6 +5,7 @@ import {NumCoupleComponent} from './num-couple/num-couple.component';
 import {NumEntrepriseComponent} from './num-entreprise/num-entreprise.component';
 import {NumHabitationComponent} from './num-habitation/num-habitation.component';
 import {NumVehiculeComponent} from './num-vehicule/num-vehicule.component';
+import {ConseilsNumerologComponent} from './conseils-numerolog/conseils-numerolog.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'vehicule',
     component: NumVehiculeComponent
+  },
+  {
+    path: 'conseils',
+    component: ConseilsNumerologComponent
   }
 ];
 

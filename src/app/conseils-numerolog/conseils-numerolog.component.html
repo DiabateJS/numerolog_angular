@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4>Conseil du numerolog</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Vous êtes a la recherche d'un prenom pour votre enfant ?<br>
+      Cette application se base sur la numérologie pour vous faire des propositions de prenom<br>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <h6>Vos informations</h6><br>
+      Nom de famille : <input type="text" [(ngModel)]="nomPere"><br>
+      <br>
+      <h6>Informations de votre enfant</h6><br>
+      Sexe :
+      <select [(ngModel)]="sexeEnfant">
+        <option value="fille">Fille</option>
+        <option value="garçon">Garçon</option>
+      </select><br>
+      <br>
+      <h6>Constantes numérologiques recherchées</h6>
+      <br>
+      Information concernant l'enfant <br>
+      <table class="table">
+        <tr>
+          <td>Nombre actif</td>
+          <td><input type="text" [(ngModel)]="nbreActifEnfant"></td>
+        </tr>
+        <tr>
+          <td>Nombre intime</td>
+          <td><input type="text" [(ngModel)]="nbreIntimeEnfant"></td>
+        </tr>
+        <tr>
+          <td>Nombre réalisation</td>
+          <td><input type="text" [(ngModel)]="nbreRealisationEnfant"></td>
+        </tr>
+        <tr>
+          <td>Nombre expression</td>
+          <td><input type="text" [(ngModel)]="nbreExpressionEnfant"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button class="btn btn-primary" (click)="doCalcul()">Rechercher Prenoms</button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col">
+      Votre nombre héréditaire : <b>{{nbreHereditairePere}}</b><br>
+      <br>
+      <b>Propositions de prenoms</b><br>
+      <p *ngIf="prenomsTrouves.length > 0">
+        {{prenomsTrouves.length}} {{prenomsTrouves.length > 1 ? 'prenoms trouvés' : 'prenom trouvé'}}<br>
+      </p>
+      <table class="table table-striped">
+        <tr>
+          <td>Nom</td><td>Prenom</td>
+        </tr>
+        <tr *ngFor="let prenom of prenomsTrouves">
+          <td>{{nomPere}}</td>
+          <td>{{prenom}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
