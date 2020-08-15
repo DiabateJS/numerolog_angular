@@ -59,18 +59,10 @@ export class ConseilsNumerologComponent implements OnInit {
             nbreIntimeEnCours = this.numerologService.getNbreIntime(nomCompletEnCours);
             nbreRealisationEnCours = this.numerologService.getNbreRealisation(nomCompletEnCours);
             nbreExpressionEnCours = this.numerologService.getNbreExpression(nomCompletEnCours);
-            if (nbreActifEnCours === nbreActifAttendu){
-                isActifConditionOk = true;
-            }
-            if (nbreIntimeEnCours === nbreIntimeEnCours){
-                isIntimeConditionOk = true;
-            }
-            if (nbreRealisationEnCours === nbreRealisationAttendu){
-                isRealisationConditionOk = true;
-            }
-            if (nbreExpressionEnCours === nbreExpressionAttendu){
-                isExpressionConditionOk = true;
-            }
+            isActifConditionOk = nbreActifEnCours === nbreActifAttendu;
+            isIntimeConditionOk = nbreIntimeEnCours === nbreIntimeAttendu;
+            isRealisationConditionOk = nbreRealisationEnCours === nbreRealisationAttendu;
+            isExpressionConditionOk = nbreExpressionEnCours === nbreExpressionAttendu;
             if (isIntimeConditionOk && isRealisationConditionOk && isActifConditionOk && isExpressionConditionOk){
               this.prenomsTrouves.push(prenom);
             }
