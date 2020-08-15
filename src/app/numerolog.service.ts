@@ -9,6 +9,8 @@ export class NumerologService {
   constructor() {
     this._dicoNbres = new Map<string,number>();
     this._dicoNbres.set('A',1);
+    this._dicoNbres.set('À',1);
+    this._dicoNbres.set('Ä',1);
     this._dicoNbres.set('J',1);
     this._dicoNbres.set('S',1);
 
@@ -17,19 +19,28 @@ export class NumerologService {
     this._dicoNbres.set('T',2);
 
     this._dicoNbres.set('C',3);
+    this._dicoNbres.set('Ç',3);
     this._dicoNbres.set('L',3);
     this._dicoNbres.set('U',3);
+    this._dicoNbres.set('Û',3);
+    this._dicoNbres.set('Ü',3);
 
     this._dicoNbres.set('D',4);
     this._dicoNbres.set('M',4);
     this._dicoNbres.set('V',4);
 
     this._dicoNbres.set('E',5);
+    this._dicoNbres.set('É',5);
+    this._dicoNbres.set('È',5);
+    this._dicoNbres.set('Ê',5);
+    this._dicoNbres.set('Ë',5);
     this._dicoNbres.set('N',5);
     this._dicoNbres.set('W',5);
 
     this._dicoNbres.set('F',6);
     this._dicoNbres.set('O',6);
+    this._dicoNbres.set('Ô',6);
+    this._dicoNbres.set('Ö',6);
     this._dicoNbres.set('X',6);
 
     this._dicoNbres.set('G',7);
@@ -41,6 +52,8 @@ export class NumerologService {
     this._dicoNbres.set('Z',8);
 
     this._dicoNbres.set('I',9);
+    this._dicoNbres.set('Î',9);
+    this._dicoNbres.set('Ï',9)
     this._dicoNbres.set('R',9);
 
     this._dicoNbres.set('1',1);
@@ -125,7 +138,7 @@ export class NumerologService {
   }
 
   isVoyelle(char:string):boolean {
-    let voyelles:string[] = ['A','E','O','U','I','Y'];
+    let voyelles:string = 'AEOUIYÀÄÛÜÉÈÊËÔÖÎÏ';
     let res:boolean = false;
     if (char.length == 1 && voyelles.indexOf(char.toUpperCase()) != -1){
       res = true;
@@ -134,9 +147,9 @@ export class NumerologService {
   }
 
   isConsonne(char:string):boolean {
-    let consonnes:string[] = ['J','S','B','K','T','C','L','D','M','V','N','W','F','X','G','P','H','Q','Z','R'];
+    let consonnes:string = 'JSBKTCÇLDMVNWFXGPHQZR';
     let res:boolean = false;
-    if (char.length == 1 && consonnes.indexOf(char.toUpperCase()) != -1){
+    if (char.length === 1 && consonnes.indexOf(char.toUpperCase()) !== -1){
       res = true;
     }
     return res;
