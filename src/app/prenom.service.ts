@@ -107,7 +107,7 @@ export class PrenomService {
       'Gwendael'
     ];
 
-    this.prenomsGarcon = [
+    this.prenomsGarcons = [
       'Benjamin',
       'Marceau',
       'Sacha',
@@ -207,11 +207,11 @@ export class PrenomService {
     ];
   }
 
-  getPrenomsFiles(){
+  getPrenomsFiles(): string[]{
     return this.prenomsFiles;
   }
 
-  getPrenomsGarcons(){
+  getPrenomsGarcons(): string[]{
     return this.prenomsGarcons;
   }
 }
