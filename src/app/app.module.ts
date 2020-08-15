@@ -30,6 +30,7 @@ import { NumEntrepriseComponent } from './num-entreprise/num-entreprise.componen
 import { NumHabitationComponent } from './num-habitation/num-habitation.component';
 import { NumVehiculeComponent } from './num-vehicule/num-vehicule.component';
 import { ConseilsNumerologComponent } from './conseils-numerolog/conseils-numerolog.component';
+import {PrenomService} from './prenom.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ConseilsNumerologComponent } from './conseils-numerolog/conseils-numero
     InterNbreExpressionService,
     InterNbreHereditaireService,
     InterNbreIntimeService,
-    InterNbreRealisationService
+    InterNbreRealisationService,
+    PrenomService
   ],
   bootstrap: [AppComponent]
 })
