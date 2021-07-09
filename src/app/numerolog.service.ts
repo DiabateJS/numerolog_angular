@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {CONSONNES, DATE_SEPARATOR, VOYELLES} from "./model/Constants";
 
 @Injectable({
   providedIn: 'root'
@@ -138,7 +139,7 @@ export class NumerologService {
   }
 
   isVoyelle(char:string):boolean {
-    let voyelles:string = 'AEOUIYÀÄÛÜÉÈÊËÔÖÎÏ';
+    let voyelles:string = VOYELLES;
     let res:boolean = false;
     if (char.length == 1 && voyelles.indexOf(char.toUpperCase()) != -1){
       res = true;
@@ -147,7 +148,7 @@ export class NumerologService {
   }
 
   isConsonne(char:string):boolean {
-    let consonnes:string = 'JSBKTCÇLDMVNWFXGPHQZR';
+    let consonnes:string = CONSONNES;
     let res:boolean = false;
     if (char.length === 1 && consonnes.indexOf(char.toUpperCase()) !== -1){
       res = true;
@@ -206,7 +207,7 @@ export class NumerologService {
 
   getCheminVie(dateNaissance:string):number {
     let cheminVie:number = 0;
-    let tabDateNais:string[] = dateNaissance ? dateNaissance.split("-") : [];
+    let tabDateNais:string[] = dateNaissance ? dateNaissance.split(DATE_SEPARATOR) : [];
     if (tabDateNais.length === 3){
       cheminVie += parseInt(tabDateNais[0]) + parseInt(tabDateNais[1]) + parseInt(tabDateNais[2]);
       cheminVie = this.reductionNum(cheminVie);
