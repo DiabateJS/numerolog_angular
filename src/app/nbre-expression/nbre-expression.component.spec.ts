@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NbreExpressionComponent } from './nbre-expression.component';
 
@@ -6,7 +6,7 @@ describe('NbreExpressionComponent', () => {
   let component: NbreExpressionComponent;
   let fixture: ComponentFixture<NbreExpressionComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NbreExpressionComponent ]
     })
