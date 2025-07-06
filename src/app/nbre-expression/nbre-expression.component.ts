@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
 import {InterNbreExpressionService} from '../inter-nbre-expression.service';
+import { RequestResult } from '../model/RequestResult';
 
 @Component({
   selector: 'app-nbre-expression',
@@ -28,7 +29,11 @@ export class NbreExpressionComponent implements OnInit {
     let fullName = `${this._nom}${this._prenom}`;
     if (fullName){
       this.nbreExpression = this.numerologService.getNbreExpression(fullName);
-      this.interNbreExpression = this.interNbreExpressionService.getInterNbre(this.nbreExpression);
+      this.interNbreExpressionService.getInterNbre(this.nbreExpression).subscribe((requestResult: RequestResult) => {
+        if (!requestResult.error){
+          this.interNbreExpression = requestResult.data.interpretation;
+        }
+      });
     }
   }
 

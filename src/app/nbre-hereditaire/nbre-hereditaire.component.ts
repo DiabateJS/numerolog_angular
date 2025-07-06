@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
 import {InterNbreHereditaireService} from '../inter-nbre-hereditaire.service';
+import { RequestResult } from '../model/RequestResult';
 
 @Component({
   selector: 'app-nbre-hereditaire',
@@ -37,7 +38,11 @@ export class NbreHereditaireComponent implements OnInit {
       if (fullName !== ''){
         //Calcul nombre héréditaire
         this.nbreHereditaire = this.numerologService.getNbreHereditaire(fullName);
-        this.interNbreHereditaire = this.interNbreHereditaireService.getInterNbre(this.nbreHereditaire);
+        this.interNbreHereditaireService.getInterNbre(this.nbreHereditaire).subscribe((requestResult: RequestResult) => {
+          if (!requestResult.error){
+            this.interNbreHereditaire = requestResult.data.interpretation;
+          }
+        });
       }
   }
 

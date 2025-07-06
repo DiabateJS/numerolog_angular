@@ -1,30 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RequestResult } from './model/RequestResult';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InterNbreHereditaireService {
-  private _tabInterNbreHereditaire:string[];
 
-  constructor() {
-    this._tabInterNbreHereditaire = [
-      "Courage, assurance, audace, aplomb.",
-      "Équilibre, Sociabilité, Bon sens, Amabilité.",
-      "Créativité, Adaptabilité, Inventivité, Expression.",
-      "Méthode, Ordre, Minutie, Rigueur et Ténacité.",
-      "Combativité, Ardeur, Résistance.",
-      "Justice, Générosité, Honnêteté.",
-      "Raison, Sagesse, Bon sens, Modération.",
-      "Autorité, Détermination, Influence.",
-      "Dignité, Fierté, Amour-propre."
-    ];
-  }
+  constructor(private http: HttpClient) {}
 
-  getInterNbre(nbre:number):string{
-    let interNbre:string = '';
-    if (nbre > 0 && nbre < 10){
-        interNbre = this._tabInterNbreHereditaire[nbre-1];
-    }
-    return interNbre;
+  getInterNbre(nbre:number): Observable<RequestResult> {
+    const urlBase:string = 'http://localhost:85/numerolog-api/index.php?';
+    let request:string = `method=getNbreInter&params=nbre_hereditaire;${nbre}`;
+    let url:string = `${urlBase}${request}`;
+    return this.http.get<RequestResult>(url);
   }
 }

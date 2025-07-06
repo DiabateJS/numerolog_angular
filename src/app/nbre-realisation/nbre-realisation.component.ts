@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
 import {InterNbreRealisationService} from '../inter-nbre-realisation.service';
+import { RequestResult } from '../model/RequestResult';
 
 @Component({
   selector: 'app-nbre-realisation',
@@ -28,7 +29,11 @@ export class NbreRealisationComponent implements OnInit {
     let fullName = `${this._nom}${this._prenom}`;
     if (fullName !== ''){
       this.nbreRealisation = this.numerologService.getNbreRealisation(fullName);
-      this.interNbreRealisation = this.interNbreRealisationService.getInterNbre(this.nbreRealisation);
+      this.interNbreRealisationService.getInterNbre(this.nbreRealisation).subscribe((requestResult: RequestResult) => {
+        if (!requestResult.error){
+            this.interNbreRealisation = requestResult.data.interpretation;
+        }
+      });
     }
   }
 

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
 import {InterNbreManquantService} from '../inter-nbre-manquant.service';
+import { RequestResult } from '../model/RequestResult';
 
 @Component({
   selector: 'app-nbres-manquants',
@@ -29,7 +30,13 @@ export class NbresManquantsComponent implements OnInit {
     if (fullName !== ''){
       this.nbresManquants = this.numerologService.getNbresManquants(fullName);
       //Interpretation des nombres manquants
-      this.dicoNbresManquants = this.interNbreManquantService.getIntersNbres(this.nbresManquants);
+      this.nbresManquants.forEach(nbre => {
+          this.interNbreManquantService.getInterNbre(nbre).subscribe((requestResult: RequestResult) => {
+              if (!requestResult.error){
+                  this.dicoNbresManquants.set(nbre, requestResult.data.interpretation);
+              }
+          })
+      });
     }
   }
 

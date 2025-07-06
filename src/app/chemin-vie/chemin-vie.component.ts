@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
 import {InterCheminVieService} from '../inter-chemin-vie.service';
+import { RequestResult } from '../model/RequestResult';
 
 @Component({
   selector: 'app-chemin-vie',
@@ -25,7 +26,11 @@ export class CheminVieComponent implements OnInit {
   private getCheminVie(){
     //Calcul chemin de vie
     this.cheminVie = this.numerologService.getCheminVie(this._dateNaissance);
-    this.interCheminVie = this.interCheminVieService.getInterNbre(this.cheminVie);
+    this.interCheminVieService.getInterNbre(this.cheminVie).subscribe((requestResult: RequestResult) => {
+        if (!requestResult.error){
+            this.interCheminVie = requestResult.data.interpretation;
+        }
+    });
   }
 
   get dateNaissance():string{

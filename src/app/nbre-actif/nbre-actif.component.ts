@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
 import {InterNbreActifService} from '../inter-nbre-actif.service';
+import { RequestResult } from '../model/RequestResult';
 
 @Component({
   selector: 'app-nbre-actif',
@@ -37,7 +38,11 @@ export class NbreActifComponent implements OnInit {
     if (fullName){
       //Calcul nombre actif
       this.nbreActif = this.numerologService.getNbreActif(fullName);
-      this.interNbreActif = this.interNbreActifService.getInterNbre(this.nbreActif);
+      this.interNbreActifService.getInterNbre(this.nbreActif).subscribe((requestResult: RequestResult) => {
+          if (!requestResult.error){
+            this.interNbreActif = requestResult.data.interpretation;
+          }
+      });
     }
   }
 
