@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NumerologService} from '../numerolog.service';
 import {InterNbreIntimeService} from '../inter-nbre-intime.service';
+import { RequestResult } from '../model/RequestResult';
 
 @Component({
   selector: 'app-nbre-intime',
@@ -49,7 +50,11 @@ export class NbreIntimeComponent implements OnInit {
     if (fullName !== ''){
       //Calcul nombre intime
       this.nbreIntime = this.numerologService.getNbreIntime(fullName);
-      this.interNbreIntime = this.interNbreIntimeService.getInterNbre(this.nbreIntime);
+      this.interNbreIntimeService.getInterNbre(this.nbreIntime).subscribe((resultData: RequestResult) => {
+          if (!resultData.error){
+            this.interNbreIntime = resultData.data.interpretation;
+          }
+      });
     }
   }
 

@@ -31,6 +31,7 @@ import { NumHabitationComponent } from './num-habitation/num-habitation.componen
 import { NumVehiculeComponent } from './num-vehicule/num-vehicule.component';
 import { ConseilsNumerologComponent } from './conseils-numerolog/conseils-numerolog.component';
 import {PrenomService} from './prenom.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {PrenomService} from './prenom.service';
     ConseilsNumerologComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule
