@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { RequestResult } from './model/RequestResult';
 import { Observable } from 'rxjs';
+import { BACK_URL_BASE } from './model/Constants';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,8 @@ export class InterNbreIntimeService {
   }
 
   getInterNbre(nbre:number):Observable<RequestResult> {
-    const urlBase:string = 'http://localhost:85/numerolog-api/index.php?';
     let request:string = `method=getNbreInter&params=nbre_intime;${nbre}`;
-    let url:string = `${urlBase}${request}`;
+    let url:string = `${BACK_URL_BASE}${request}`;
     return this.http.get<RequestResult>(url);
   }
 }
